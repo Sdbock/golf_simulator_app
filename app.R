@@ -1,6 +1,6 @@
 
 library(shinythemes)
-#library(shiny.info)
+library(shiny.info)
 library(shiny)
 library(tidyr)
 library(dplyr)
@@ -44,7 +44,7 @@ ui <-
 navbarPage(
   shinybrowser::detect(),
   title = "Golf Match Simulator",
-  #header = display(p(style = "margin: 0;", "Created by ", a(href = "https://www.seanbock.com",                                                                                         target = "_blank", "Sean Bock")), type = "powered_by"),
+  header = display(p(style = "margin: 0;", "Created by ", a(href = "https://www.seanbock.com",                                                                                         target = "_blank", "Sean Bock")), type = "powered_by"),
   theme = my_theme,
   tabPanel("Simulator",fluidPage(theme = my_theme,
                                  tags$style('.alert {background-color: transparent}; 
