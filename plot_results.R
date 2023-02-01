@@ -11,7 +11,6 @@ plot_results <- function(sim_output, constant = 400) {
              diff > 0 ~ "Player 2 wins",
              diff == 0 ~ "Tie"
            ),
-           #noise = rnorm(nrow(matches), mean = .5, sd = .25))
            noise = runif(nrow(matches), 0, 1))
   
   p1_hdc <- sim_output$Results[[1]][[1]]
@@ -41,7 +40,6 @@ plot_results <- function(sim_output, constant = 400) {
     scale_fill_manual(labels = c(glue::glue("{p1_hdc} wins"), glue::glue("{p2_hdc} wins")),
                       values = c(new_order[1], new_order[2]), 
                       limits = c("Player 1 wins", "Player 2 wins"),
-                      #limits = c(new_order[1], new_order[2], "grey"),
                       drop = FALSE) +
     
     annotate("text", x = -17, y = 1.5, label = glue::glue("{p1_hdc} Wins\n{scales::percent(p1_win, accuracy = .1, trim = TRUE)} of Matches"), fontface = "bold", size = 5.5/400 * constant, color = "#BA9197") +
@@ -59,10 +57,8 @@ plot_results <- function(sim_output, constant = 400) {
       panel.background = element_rect(color = "white", fill = "white"),
       panel.grid.major.x = element_line(color = tick_colors),
       text = element_text(size = 15/400 * constant),
-      #text = element_text(size = 8/900 * width),
       plot.margin = margin(4,0,0,0, "cm")
     ) +
-      #coord_fixed(ratio = ratio,ylim = c(-.05, 1.05), clip = "off") 
       coord_cartesian(ylim = c(-.05, 1.05),clip = "off") 
   
 }
